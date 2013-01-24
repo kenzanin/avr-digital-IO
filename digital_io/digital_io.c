@@ -29,7 +29,7 @@ flag01
 4  = PORT 1
 8  = PORT 0
 */
-inline void ___port_setup(volatile uint8_t* PORT,const uint8_t flag01,const uint8_t __PORT)
+void ___port_setup(volatile uint8_t* PORT,const uint8_t flag01,const uint8_t __PORT)
 {
     uint8_t _port=*PORT;
     uint8_t _ddr =*(PORT-1);
