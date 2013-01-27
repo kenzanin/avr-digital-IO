@@ -1,4 +1,4 @@
 avr-digital-IO
 ==============
 
-libtary initialisasi dan akses digital IO untuk AVR
+library initialisasi dan akses digital IO untuk AVR
