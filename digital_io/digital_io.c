@@ -22,34 +22,35 @@ const uint8_t argsToNumber(const uint8_t n,...)
     return ii;
 }
 
-/*
-flag01
-1  = DDR  output
-2  = DDR  input
-4  = PORT 1
-8  = PORT 0
-*/
 void ___port_setup(volatile uint8_t* PORT,const uint8_t flag01,const uint8_t __PORT)
 {
+	/*
+	flag01
+	1  = DDR  output
+	2  = DDR  input
+	4  = PORT 1
+	8  = PORT 0
+	*/
     uint8_t _port=*PORT;
     uint8_t _ddr =*(PORT-1);
 
     if(flag01&0x01)
     {
-        _port|=__PORT;
+        _ddr|=__PORT;
     }
     else if(flag01&0x02)
     {
-        _port&=~(__PORT);
+        _ddr&=~(__PORT);
     }
+
     if(flag01&0x04)
     {
-        _ddr|=__PORT;
+        _port|=__PORT;
     }
     else if(flag01&0x08)
     {
-        _ddr&=~(__PORT);
+        _port&=~(__PORT);
     }
-    *(PORT)=_port;
-    *(PORT-1)=_ddr;
+    *(PORT)		=_port;
+    *(PORT-1)	=_ddr;
 }
